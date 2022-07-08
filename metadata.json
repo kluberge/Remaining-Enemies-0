@@ -1,6 +1,6 @@
 {
     "name": "Remaining Enemies: 0",
-    "description": "Defeating the teleporter boss finishes the teleporter event\nNow you only need to defeat the teleporter boss to progress to the next stage, instead of defeating all remaining enemies",
+    "description": "Defeating the teleporter boss finishes the teleporter event. \nNow you only need to defeat the teleporter boss to progress to the next stage, instead of defeating all remaining enemies",
 	"internalname": "bossteleporter",
     "version": "0.1",
     "author": "PhysicsFox",
