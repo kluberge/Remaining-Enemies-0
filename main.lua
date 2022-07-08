@@ -1,18 +1,14 @@
 
 ------ main.lua
 
-require("cyclonelib/main")
-
 local o_teleporter = Object.find("Teleporter", "vanilla")
 
-local tele_sync = CycloneLib.net.AllPacket("next_stage", function(net_teleporter, active)
+local teleporterSyncPacket = net.Packet("Sync Teleporter", function(sender, net_teleporter)
 	local i_teleporter = net_teleporter:resolve()
-	if i_teleporter and (i_teleporter:get("active") < active) then
-		i_teleporter:set("active", active)
-	end
+	i_teleporter:set("active", 3)
 end)
 
-registercallback("onStep", function() 
+registercallback("onStep", function() 	
 	local i_teleporter = o_teleporter:find(1)
 		
 	if not i_teleporter then
@@ -28,8 +24,10 @@ registercallback("onStep", function()
 		end
 		
 		if num_bosses == 0 and (not net.online or net.host) then
+			i_teleporter:set("active", 3)
+			
 			net_teleporter = i_teleporter:getNetIdentity()
-			tele_sync(net_teleporter, 3)
+			teleporterSyncPacket:sendAsHost(net.ALL, nil, net_teleporter)
 		end
 	end
 end)

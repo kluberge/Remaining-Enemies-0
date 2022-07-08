@@ -4,8 +4,5 @@
 	"internalname": "bossteleporter",
     "version": "0.1",
     "author": "PhysicsFox",
-	"mpcompat":true,
-	"dependencies":[
-		{ "name":"cyclonelib", "version":"0.4.1", "optional":false }
-	]
+	"mpcompat":true
 }
